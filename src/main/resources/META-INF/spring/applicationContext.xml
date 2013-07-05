@@ -24,6 +24,11 @@
         <jdbc:script location="classpath:/create.sql"/>
     </jdbc:initialize-database>
 
+    <bean class="orderentry.utils.DataSourceInitializer">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="script" value="classpath:/create.sql"/>
+    </bean>
+
     <!-- JPA Configuration -->
 
     <bean id="jpaDialect" class="org.springframework.orm.jpa.vendor.HibernateJpaDialect"/>
