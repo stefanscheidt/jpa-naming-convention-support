@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/stefanscheidt/jpa-naming-convention-support.png)](https://travis-ci.org/stefanscheidt/jpa-naming-convention-support)
+
 # JPA Support for specific DB naming conventions
 
 _TODO:_ Add description.
