@@ -17,6 +17,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
+        <port.h2>9092</port.h2>
         <version.spring>3.2.3.RELEASE</version.spring>
     </properties>
 
@@ -25,6 +26,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.15</version>
                 <configuration>
                     <skip>true</skip>
                 </configuration>
@@ -144,7 +146,7 @@
                                     <arguments>
                                         <argument>-tcp</argument>
                                         <argument>-tcpPort</argument>
-                                        <argument>9092</argument>
+                                        <argument>${port.h2}</argument>
                                         <argument>-baseDir</argument>
                                         <argument>./var</argument>
                                         <argument>-tcpDaemon</argument>
@@ -162,7 +164,7 @@
                                     <mainClass>org.h2.tools.Server</mainClass>
                                     <arguments>
                                         <argument>-tcpShutdown</argument>
-                                        <argument>tcp://localhost:9092</argument>
+                                        <argument>tcp://localhost:${port.h2}</argument>
                                         <argument>-tcpShutdownForce</argument>
                                     </arguments>
                                 </configuration>
