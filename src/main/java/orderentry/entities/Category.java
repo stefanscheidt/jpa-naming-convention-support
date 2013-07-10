@@ -1,20 +1,15 @@
 package orderentry.entities;
 
+import jpa.namingsupport.AbstractEntity;
+import jpa.namingsupport.Alias;
+
 import javax.persistence.*;
 
+@SuppressWarnings("UnusedDeclaration")
 @Entity
 @Table(name = "CATEGORIES")
-public class Category {
-
-    @Id
-    @Column(name = "CTGR_ID")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CTGR_ID_GEN")
-    @SequenceGenerator(name = "CTGR_ID_GEN", sequenceName = "CTGR_ID_SEQ")
-    private Long id;
-
-    @Version
-    @Column(name = "CTGR_VERSION")
-    private Long version;
+@Alias(name = "CTGR")
+public class Category extends AbstractEntity {
 
     @Basic(optional = false)
     @Column(name = "CTGR_NAME")
@@ -29,16 +24,13 @@ public class Category {
     }
 
     public Category(String name, String description) {
+        this(null, null, name, description);
+    }
+
+    public Category(Long id, Long version, String name, String description) {
+        super(id, version);
         this.name = name;
         this.description = description;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public Long getVersion() {
-        return version;
     }
 
     public String getName() {
